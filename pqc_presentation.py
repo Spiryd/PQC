@@ -14,8 +14,10 @@ class PQC(Slide):
         self.play(FadeOut(title, sub_title))
         # Fists Topic
         topic1_title = Text('Recent Developments & Current State Of Quantum Computing', font_size=60).to_edge(UP)
-        self.play(FadeIn(topic1_title))
+        biden_img = ImageMobject("JOEBIDENWAKEUP.jpg").scale(1.5)
+        self.play(FadeIn(topic1_title, biden_img))
         self.next_slide()
+        self.play(FadeOut(biden_img), run_time=1)
         values=[27, 65, 127, 433, 1125, 1386, 4158, 7500, 10000, 15000]
         quibit_chart = BarChart(
             values,
