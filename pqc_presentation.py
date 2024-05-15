@@ -28,7 +28,7 @@ class PQC(Slide):
             y_axis_config={"font_size": 40},
         )
         qchart_labels = quibit_chart.get_bar_labels(font_size=40)
-        self.play(Create(quibit_chart), run_time=3)
+        self.play(Create(quibit_chart), run_time=4)
         self.play(FadeIn(qchart_labels))
         self.next_slide()
         # Second Topic
@@ -143,6 +143,4 @@ class PQC(Slide):
         final_title = Text('Thank You').scale(6)
         self.wipe(Group(w0, w0_label, w1, w1_label, VGroup(*lattice), VGroup(*public_vectors_to_c), point_to_find, point_to_find_label, origin_dot, origin_label), final_title)
         self.next_slide()
-        
-
         
