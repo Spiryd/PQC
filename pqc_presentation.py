@@ -13,9 +13,12 @@ class PQC(Slide):
         self.next_slide()
         self.play(FadeOut(title, sub_title))
         # Fists Topic
-        topic1_title = Text('Recent Developments & Current State Of Quantum Computing', font_size=60).to_edge(UP)
+        topic1_title = Text('History & Current State Of Quantum Computing', font_size=60).to_edge(UP)
+        feynman_img = ImageMobject("Feynman.jpg")
+        self.play(FadeIn(topic1_title, feynman_img))
+        self.next_slide()
         biden_img = ImageMobject("JOEBIDENWAKEUP.jpg").scale(1.5)
-        self.play(FadeIn(topic1_title, biden_img))
+        self.wipe(feynman_img, biden_img)
         self.next_slide()
         self.play(FadeOut(biden_img), run_time=1)
         values=[27, 65, 127, 433, 1125, 1386, 4158, 7500, 10000, 15000]
@@ -38,17 +41,18 @@ class PQC(Slide):
         peter_img = ImageMobject("Peter.jpg").scale(.5)
         self.play(FadeIn(peter_img))
         self.next_slide()
-        # Third Topic
-        topic3_title = Text('Intro to Cryptographic Concepts', font_size=60).to_edge(UP)
-        enigma_img = ImageMobject("Enigma.jpg")
-        self.wipe(Group(peter_img, topic2_title), Group(topic3_title, enigma_img))
+        moscas_theroem = ImageMobject("MoscasTheorem.png")
+        self.wipe(peter_img, moscas_theroem)
+        self.next_slide()
+        nistlogo_img = ImageMobject("NIST-logo.png").scale(.75)
+        self.wipe(moscas_theroem, nistlogo_img)
         self.next_slide()
         # Fourth Topic
         topic4_title = Text('Post Quantum Primitives', font_size=80).to_edge(UP)
         primitives_list = BulletedList(
             "Secret-key", "Code-based", "Multivariate-quadratic-equations", "Hash-based", "Lattice-based",
         ).scale(2)
-        self.wipe(Group(topic3_title, enigma_img), Group(topic4_title, primitives_list))
+        self.wipe(Group(topic2_title, nistlogo_img), Group(topic4_title, primitives_list))
         self.next_slide()
         self.play(primitives_list.animate.set_color_by_tex("Lattice-based", BLUE))
         self.next_slide()
